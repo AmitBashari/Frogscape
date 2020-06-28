@@ -5,9 +5,13 @@ using UnityEngine;
 public class ConstantMove : MonoBehaviour
 {
     public Vector3 Speed; // C Sharp convention to use a capital 'S' since this variable is public
+    public Rigidbody rb;
 
-    private void Update() 
+    private void Start()
     {
-        transform.Translate(Speed * Time.deltaTime, Space.Self);
+        rb = GetComponent<Rigidbody>();
+        rb.AddForce(Speed);
+
     }
+
 }
