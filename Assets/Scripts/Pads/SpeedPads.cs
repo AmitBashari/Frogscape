@@ -22,7 +22,7 @@ public class SpeedPads : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log(rb.velocity);
+        Debug.Log(rb.velocity);
         if (rb.velocity.z > move.Speed.z) // player start speed
         {
             rb.velocity -= Vector3.forward * SpeedDecayValue* Time.deltaTime;

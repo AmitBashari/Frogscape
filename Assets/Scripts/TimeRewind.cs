@@ -28,9 +28,9 @@ public class TimeRewind : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Return))
-			StartRewind();
-		if (Input.GetKeyUp(KeyCode.Return))
+		if (Input.GetKeyDown(KeyCode.Return)) // Add Here - && NumberOfFlies >=5
+			StartRewind(); //Add here - NumberOfFlies - 5
+        if (Input.GetKeyUp(KeyCode.Return))
 			StopRewind();
             
         /*accelerationDir = Input.acceleration;
