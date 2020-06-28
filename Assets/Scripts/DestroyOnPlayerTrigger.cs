@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyBackwardsPusher : MonoBehaviour
+public class DestroyOnPlayerTrigger : MonoBehaviour
 {
 
     private void OnTriggerEnter(Collider other)

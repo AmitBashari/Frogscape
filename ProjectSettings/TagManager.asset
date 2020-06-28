@@ -4,10 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - LowJump
-  - LowSpeedPad
   - SlowPad
   - BackwardsPusher
+  - JumpPadLow
+  - JumpPadMedium
+  - SpeedPadLow
+  - JumpPadHigh
+  - SpeedPadMedium
+  - SpeedPadHigh
   layers:
   - Default
   - TransparentFX

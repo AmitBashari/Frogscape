@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeBody : MonoBehaviour {
+public class TimeRewind : MonoBehaviour {
 
 	bool isRewinding = false;
 
@@ -13,6 +13,7 @@ public class TimeBody : MonoBehaviour {
 
 	Rigidbody rb;
     Collider col;
+    SlideController slide;
 
     Vector3 accelerationDir;
 
@@ -21,6 +22,8 @@ public class TimeBody : MonoBehaviour {
 		pointsInTime = new List<PointInTime>();
 		rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
+        slide = GetComponent<SlideController>();
+    
 	}
 	
 	// Update is called once per frame
@@ -58,6 +61,8 @@ public class TimeBody : MonoBehaviour {
 			PointInTime pointInTime = pointsInTime[0];
             transform.position = pointInTime.position;
 			transform.rotation = pointInTime.rotation;
+            rb.velocity = pointInTime.velocity;
+
 			pointsInTime.RemoveAt(0);
 		} else
 		{
@@ -73,21 +78,23 @@ public class TimeBody : MonoBehaviour {
 			pointsInTime.RemoveAt(pointsInTime.Count - 1);
 		}
 
-		pointsInTime.Insert(0, new PointInTime(transform.position, transform.rotation));
+        pointsInTime.Insert(0, new PointInTime(transform.position, transform.rotation, rb.velocity));
 	}
 
 	public void StartRewind ()
 	{
 		isRewinding = true;
-		rb.isKinematic = true;
+		//rb.isKinematic = true;
         col.enabled = false;
+        slide.enabled = false;
 
 	}
 
 	public void StopRewind ()
 	{
 		isRewinding = false;
-		rb.isKinematic = false;
+		//rb.isKinematic = false;
         col.enabled = true;
+        slide.enabled = true;
     }
 }

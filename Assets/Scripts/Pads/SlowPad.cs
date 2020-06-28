@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(ConstantMove))]
 public class SlowPad : MonoBehaviour
 {
-    public float SlowValue;
-    public float SpeedIncreaseValue;
+    public float SlowValue = 10f;
+    public float SpeedIncreaseValue = 4f;
 
     Vector3 PlayerSpeed;
     Rigidbody rb;
@@ -31,20 +31,21 @@ public class SlowPad : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider collider)
+    /*void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag == "SlowPad")
+        if (collider.gameObject.tag == "SpeedPadLow")
         {
             if (PlayerSpeed.z < SlowValue)
             {
                 SlowValue = PlayerSpeed.z - 5;
             }
 
-            Debug.Log("We Hit A SlowPad");
+            Debug.Log("We Hit A Speed Pad Low");
            
             rb.velocity += Vector3.back * SlowValue;
 
 
         }
     }
+    */
 }

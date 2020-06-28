@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(ConstantMove))]
-public class LowJumper : MonoBehaviour
+public class JumpPadMedium : MonoBehaviour
 {
-    public float JumpVelocity = 10;
+    
+    
+    //public float JumpVelocity = 100f;
     public float FallMultiplier = 2.5f;
 
     Rigidbody rb;
     ConstantMove move;
 
-    private void Start()
+    //private float lowJump;
+
+    public void Start()
     {
         rb = GetComponent<Rigidbody>();
         move = GetComponent<ConstantMove>();
+        //lowJump = JumpPads.JumpVelocity;
+
     }
 
     private void Update()
@@ -23,17 +29,18 @@ public class LowJumper : MonoBehaviour
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (FallMultiplier - 1) * Time.deltaTime;
         }
-       
+
     }
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag == "LowJump")
+        if (collider.gameObject.tag == "JumpPadMedium")
         {
-            Debug.Log("We Hit A Low Jumper");
-            rb.velocity += Vector3.up * JumpVelocity;
-         
+            Debug.Log("We Hit A Jump Pad Medium");
+            //rb.velocity += Vector3.up * JumpVelocity;
+            //rb.velocity += Vector3.up * lowJump *2f ;
 
         }
     }
 }
+

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody),typeof(ConstantMove))] // if the unit who has this script doesn't have RB - unity will show an "error" message
-public class LowSpeedPad : MonoBehaviour
+public class SpeedPadMedium : MonoBehaviour
 {
     public float SpeedBoostValue;
     public float SpeedDecayValue;
@@ -22,7 +21,7 @@ public class LowSpeedPad : MonoBehaviour
         Debug.Log(rb.velocity);
         if (rb.velocity.z > move.Speed.z) // player start speed
         {
-            rb.velocity -= Vector3.forward * SpeedDecayValue* Time.deltaTime;
+            rb.velocity -= Vector3.forward * SpeedDecayValue * Time.deltaTime;
         }
 
 
@@ -30,7 +29,7 @@ public class LowSpeedPad : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag == "LowSpeedPad")
+        if (collider.gameObject.tag == "SpeedPadLow")
         {
             Debug.Log("We Hit A LowSpeed");
             rb.velocity += Vector3.forward * SpeedBoostValue;

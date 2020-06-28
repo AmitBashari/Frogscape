@@ -13,7 +13,7 @@ public class SlideController : MonoBehaviour
         if (Input.GetMouseButton(0))  // GetMouseButtonUp or GetMouseButtonDown adds a bool value for ONE frame only. GetMouseButton Gets it as long as the button is held // 0 means Left mouse button
 
         {
-            Vector2 currentMousePosition = Input.mousePosition; // var means decude from the vaule I give you, what variable type is should be
+            Vector2 currentMousePosition = Input.mousePosition; // var means deduce from the vaule I give you, what variable type is should be
 
             if (_previousMousePosition.HasValue)
             {
