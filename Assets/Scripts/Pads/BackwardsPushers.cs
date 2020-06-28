@@ -33,7 +33,6 @@ public class BackwardsPushers : MonoBehaviour
             rb.velocity += Vector3.forward * SpeedIncreaseValue * Time.deltaTime;
         }
 
-
     }
 
     void OnTriggerEnter(Collider collider)
